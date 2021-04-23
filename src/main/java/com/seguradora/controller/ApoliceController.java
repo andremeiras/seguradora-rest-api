@@ -31,7 +31,7 @@ public class ApoliceController {
 	Apolice apo = new Apolice();
 
 	@GetMapping("/lista")
-	public ResponseEntity<List<Apolice>> listarTodos() {
+	public ResponseEntity<List<Apolice>> listarTodasApolices() {
 		try {
 			List<Apolice> apo = new ArrayList<Apolice>();
 
@@ -50,7 +50,7 @@ public class ApoliceController {
 	}
 
 	@GetMapping("/{id}")
-	public ResponseEntity<Apolice> getTutorialById(@PathVariable("id") Integer id) {
+	public ResponseEntity<Apolice> buscarApolicePorId(@PathVariable("id") Integer id) {
 		Optional<Apolice> apolice = apoliceRepository.findById(id);
 
 		if (apolice.isPresent()) {
@@ -61,7 +61,7 @@ public class ApoliceController {
 	}
 
 	@GetMapping("/numeroApolice/{id}")
-	public ResponseEntity<ApoliceVO> getApolicebyNumero(@PathVariable("id") String numeroApolice) {
+	public ResponseEntity<ApoliceVO> buscarApolicePorNumero(@PathVariable("id") String numeroApolice) {
 		Apolice apolice = apoliceRepository.buscarApolicePorNumero(numeroApolice);
 
 		ApoliceVO apoVO = new ApoliceVO(apolice);
@@ -73,7 +73,7 @@ public class ApoliceController {
 	}
 
 	@PostMapping("/novo")
-	public ResponseEntity<Apolice> createTutorial(@RequestBody Apolice apolice) {
+	public ResponseEntity<Apolice> criarApolice(@RequestBody Apolice apolice) {
 
 		ArrayList<String> listaApolices = apoliceRepository.listarApolices();
 
@@ -96,7 +96,7 @@ public class ApoliceController {
 	}
 
 	@PutMapping("/{id}")
-	public ResponseEntity<Apolice> updateTutorial(@PathVariable("id") Integer id, @RequestBody Apolice apolice) {
+	public ResponseEntity<Apolice> atualizarApolice(@PathVariable("id") Integer id, @RequestBody Apolice apolice) {
 		Optional<Apolice> apoliceBanco = apoliceRepository.findById(id);
 
 		if (apoliceBanco.isPresent()) {
@@ -119,7 +119,7 @@ public class ApoliceController {
 	}
 
 	@DeleteMapping("/{id}")
-	public ResponseEntity<HttpStatus> deleteTutorial(@PathVariable("id") int id) {
+	public ResponseEntity<HttpStatus> deletarApolice(@PathVariable("id") int id) {
 		try {
 			apoliceRepository.deleteById(id);
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
