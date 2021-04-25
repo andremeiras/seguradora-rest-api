@@ -6,7 +6,7 @@ Foi criada para atender o desafio proposto pela empresa Equiplano para preenchim
 Para acessar a aplicação, seguir os passos abaixo.
 
 ### 1. Como executar o projeto
-Dentro da pasta do projeto, executar o seguinte comando:
+Dentro da pasta raiz do projeto, executar o seguinte comando:
 >$ java -jar seguradora-0.0.1-SNAPSHOT.war
 <br>
 <img src="img/run.png"><br><br>
