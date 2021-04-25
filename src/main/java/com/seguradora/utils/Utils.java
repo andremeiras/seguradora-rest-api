@@ -14,7 +14,6 @@ public class Utils {
 		
 		int number = rnd.nextInt(5); // Gera um Novo
 		
-		//for responsável por iterar o set, no lugar de used.size vc vai colocar o Set retornado do banco
 		for (int i = 0; i < setVerificar.size(); i++) {
 		    
 			while (number == Integer.valueOf(setVerificar.get(i)) || number == 0) {

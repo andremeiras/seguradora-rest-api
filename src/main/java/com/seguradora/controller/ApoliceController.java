@@ -95,8 +95,6 @@ public class ApoliceController {
 		apoNovo.setDataInicioVigencia(apolice.getDataInicioVigencia());
 		apoNovo.setDataFimVigencia(apolice.getDataFimVigencia());
 
-		// TODO - fazer validação se já existe a apólice
-
 		try {
 			Apolice _apolice = apoliceRepository.save(apoNovo);
 			return new ResponseEntity<>(_apolice, HttpStatus.CREATED);
@@ -120,8 +118,6 @@ public class ApoliceController {
 			_apolice.setValorApolice(apolice.getValorApolice());
 			_apolice.setDataInicioVigencia(apolice.getDataInicioVigencia());
 			_apolice.setDataFimVigencia(apolice.getDataFimVigencia());
-
-			// TODO - fazer validação para verificar se já existe
 
 			return new ResponseEntity<>(apoliceRepository.save(_apolice), HttpStatus.OK);
 		} else {

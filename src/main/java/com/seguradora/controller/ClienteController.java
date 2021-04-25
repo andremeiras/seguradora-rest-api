@@ -66,7 +66,8 @@ public class ClienteController {
 		existeCadastro = cliRepository.buscarPorCPF(cliente.getCpf().replaceAll("[^0-9]", "")); // o mesmo que o TRIM
 
 		if (existeCadastro != 0) {
-			return new ResponseEntity<>("CPF já cadastrado!", HttpStatus.PRECONDITION_REQUIRED); // ResponseEntity<?> permite passar uma mensagem no retorno ("CPF já cadastrado").
+			// ResponseEntity<?> permite passar uma mensagem no retorno ("CPF já cadastrado").
+			return new ResponseEntity<>("CPF já cadastrado!", HttpStatus.PRECONDITION_REQUIRED); 
 		} else {
 			cli.setNomeCompleto(cliente.getNomeCompleto());
 			cli.setCidade(cliente.getCidade());
@@ -97,8 +98,6 @@ public class ClienteController {
 			_cliente.setCpf(cliente.getCpf());
 			_cliente.setUf(cliente.getUf());
 			
-			// TODO - validar se o CPF a ser atualizado já existe e é valido (usando o método criarCliente() como base)
-
 			return new ResponseEntity<>(cliRepository.save(_cliente), HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);

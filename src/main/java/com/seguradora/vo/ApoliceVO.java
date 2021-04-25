@@ -50,8 +50,6 @@ public class ApoliceVO {
 			diasVencido = this.calculaDatas(this.convertDate(apolice.getDataFimVigencia()));
 			this.diasVencer = diasVencido;
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			// e.printStackTrace();
 			return;
 		}
 
@@ -71,7 +69,6 @@ public class ApoliceVO {
 
 			return date1;
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return null;
 		}
