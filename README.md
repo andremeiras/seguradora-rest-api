@@ -6,6 +6,7 @@ Foi criada para atender o desafio proposto pela empresa Equiplano para preenchim
 Para acessar a aplicação, seguir os passos abaixo.
 ### 0. Requisitos para executar o projeto
 - Java 11
+- MySQL/Mariadb (não obrigatório pois foi adicionado também o banco H2 (banco de dados em memória) ao projeto).
 
 ### 1. Como executar o projeto
 Dentro da pasta raiz do projeto, executar o seguinte comando:
