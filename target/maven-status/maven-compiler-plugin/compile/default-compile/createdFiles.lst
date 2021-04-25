@@ -5,5 +5,6 @@ com/seguradora/SeguradoraApplication.class
 com/seguradora/controller/ApoliceController.class
 com/seguradora/model/Apolice.class
 com/seguradora/utils/Utils.class
+com/seguradora/config/SwaggerConfig.class
 com/seguradora/vo/ApoliceVO.class
 com/seguradora/repository/ApoliceRepository.class
