@@ -7,6 +7,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,6 +17,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
 import com.seguradora.model.Apolice;
 import com.seguradora.repository.ApoliceRepository;
 import com.seguradora.utils.Utils;
@@ -23,6 +27,8 @@ import com.seguradora.vo.ApoliceVO;
 
 @RestController
 @RequestMapping("/apolice")
+@Api(value = "API REST Seguradora")
+@CrossOrigin(origins = "*") // liberar todos os domínios para acessar a api
 public class ApoliceController {
 
 	@Autowired
@@ -31,6 +37,7 @@ public class ApoliceController {
 	Apolice apo = new Apolice();
 
 	@GetMapping("/lista")
+	@ApiOperation(value = "Retorna lista de apólices.")
 	public ResponseEntity<List<Apolice>> listarTodasApolices() {
 		try {
 			List<Apolice> apo = new ArrayList<Apolice>();
@@ -50,6 +57,7 @@ public class ApoliceController {
 	}
 
 	@GetMapping("/{id}")
+	@ApiOperation(value = "Retorna uma apólice especificada por Id.")
 	public ResponseEntity<Apolice> buscarApolicePorId(@PathVariable("id") Integer id) {
 		Optional<Apolice> apolice = apoliceRepository.findById(id);
 
@@ -61,6 +69,7 @@ public class ApoliceController {
 	}
 
 	@GetMapping("/numeroApolice/{id}")
+	@ApiOperation(value = "Retorna uma apólice pelo número.")
 	public ResponseEntity<ApoliceVO> buscarApolicePorNumero(@PathVariable("id") String numeroApolice) {
 		Apolice apolice = apoliceRepository.buscarApolicePorNumero(numeroApolice);
 
@@ -73,6 +82,7 @@ public class ApoliceController {
 	}
 
 	@PostMapping("/novo")
+	@ApiOperation(value = "Cria uma apólice.")
 	public ResponseEntity<Apolice> criarApolice(@RequestBody Apolice apolice) {
 
 		ArrayList<String> listaApolices = apoliceRepository.listarApolices();
@@ -96,6 +106,7 @@ public class ApoliceController {
 	}
 
 	@PutMapping("/{id}")
+	@ApiOperation(value = "Atualiza uma apólice.")
 	public ResponseEntity<Apolice> atualizarApolice(@PathVariable("id") Integer id, @RequestBody Apolice apolice) {
 		Optional<Apolice> apoliceBanco = apoliceRepository.findById(id);
 
@@ -119,6 +130,7 @@ public class ApoliceController {
 	}
 
 	@DeleteMapping("/{id}")
+	@ApiOperation(value = "Exclui uma apólice específica por Id.")
 	public ResponseEntity<HttpStatus> deletarApolice(@PathVariable("id") int id) {
 		try {
 			apoliceRepository.deleteById(id);

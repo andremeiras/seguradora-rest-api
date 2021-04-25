@@ -12,13 +12,13 @@ public class Utils {
 		
 		Random rnd = new Random(); // instancia o Random
 		
-		int number = rnd.nextInt(10); // Gera um Novo
+		int number = rnd.nextInt(5); // Gera um Novo
 		
 		//for responsável por iterar o set, no lugar de used.size vc vai colocar o Set retornado do banco
 		for (int i = 0; i < setVerificar.size(); i++) {
 		    
-			while (number == Integer.valueOf(setVerificar.get(i))) {
-		        number = rnd.nextInt(400);				
+			while (number == Integer.valueOf(setVerificar.get(i)) || number == 0) {
+		        number = rnd.nextInt(10);				
 			}
 			
 		}
