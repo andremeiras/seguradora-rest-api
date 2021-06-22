@@ -1,7 +1,5 @@
-# Desafio Equiplano - API REST - Seguradora de Veículos
+# API REST - Seguradora de Veículos
 É uma aplicação REST API, que dá acesso aos endpoints (CRUD) para os sistemas de uma empresa de seguros.
-
-Foi criada para atender o desafio proposto pela empresa Equiplano para preenchimento da vaga de Desenvolvedor Java.
 
 Para acessar a aplicação, seguir os passos abaixo.
 ### 0. Requisitos para executar o projeto
